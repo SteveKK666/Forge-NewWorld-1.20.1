@@ -36,18 +36,18 @@ public class SocubeEntity extends Animal {
     }
 
     public void updateParts() {
-        // คำนวณตำแหน่งใหม่
+      
         float yawRadians = (float) Math.toRadians(this.getYRot());
         double headOffsetX = Math.cos(yawRadians) * 2.0;
         double headOffsetZ = Math.sin(yawRadians) * 2.0;
 
-        // ตั้งค่าตำแหน่งให้กับ head
+        
         this.head.setPos(this.getX() + headOffsetX, this.getY(), this.getZ() + headOffsetZ);
 
         double tailOffsetX = Math.cos(yawRadians + Math.PI) * 3.0;
         double tailOffsetZ = Math.sin(yawRadians + Math.PI) * 3.0;
 
-        // ตั้งค่าตำแหน่งให้กับ tail
+     
         this.tail.setPos(this.getX() + tailOffsetX, this.getY(), this.getZ() + tailOffsetZ);
     }
 
@@ -85,13 +85,13 @@ public class SocubeEntity extends Animal {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        // ตรวจสอบว่าแหล่งดาเมจเป็น `SocubePart` หรือไม่
+     
         if (source.getEntity() instanceof SocubePart) {
-            // ลดจำนวนดาเมจลงหรือตรวจสอบเงื่อนไขต่าง ๆ
-            amount *= 0.5F; // ลดดาเมจให้ครึ่งหนึ่ง (ปรับค่าได้ตามต้องการ)
+          
+            amount *= 0.5F; 
         }
 
-        // เรียกฟังก์ชัน `hurt` ของคลาสหลัก (Animal)
+      
         return super.hurt(source, amount);
     }
     @Override
